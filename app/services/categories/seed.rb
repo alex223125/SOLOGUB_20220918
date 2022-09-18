@@ -1,13 +1,14 @@
+# frozen_string_literal: true
+
 module Services
   module Categories
     class Seed
-
-      DEFAULT = ["Exercise", "Education", "Recipe"].freeze
+      DEFAULT = %w[Exercise Education Recipe].freeze
       AMOUNT = 3
 
       def call
         if categories_present?
-          #do nothing
+          # do nothing
         else
           seed
         end
@@ -26,7 +27,6 @@ module Services
           end
         end
       end
-
     end
   end
 end
