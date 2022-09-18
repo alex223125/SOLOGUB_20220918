@@ -10,7 +10,7 @@ module SOLOGUB20220918
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
-
+    Dir[Rails.root.join('app/services/**/*.rb')].each{|rb| require rb}
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
@@ -18,5 +18,10 @@ module SOLOGUB20220918
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+    config.after_initialize do
+      Rails.application.load_tasks
+      Rake::Task['categories:seed_categories'].invoke
+    end
   end
 end
