@@ -4,4 +4,9 @@
     <%= video.title %>
   </p>
 
+  <p>
+    <strong>Category:</strong>
+    <%= link_to video.try(:category).try(:title), video.category %>
+  </p>
+
 </div>

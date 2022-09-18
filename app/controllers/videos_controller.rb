@@ -2,6 +2,7 @@
 
 class VideosController < ApplicationController
   before_action :set_video, only: %i[show edit update destroy]
+  before_action :set_categories
 
   # GET /videos or /videos.json
   def index
@@ -66,6 +67,10 @@ class VideosController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def video_params
-    params.require(:video).permit(:title)
+    params.require(:video).permit(:title, :category_id)
+  end
+
+  def set_categories
+    @categories = Category.all.order(:title)
   end
 end

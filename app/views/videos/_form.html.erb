@@ -17,6 +17,11 @@
   </div>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.title, cat.id]})%>
+  </div>
+
+  <div>
     <%= form.submit %>
   </div>
 <% end %>
