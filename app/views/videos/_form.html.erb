@@ -12,13 +12,23 @@
   <% end %>
 
   <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.title, cat.id]})%>
+  </div>
+
+  <div>
     <%= form.label :title, style: "display: block" %>
     <%= form.text_field :title %>
   </div>
 
   <div>
-    <%= form.label :category, style: "display: block" %>
-    <%= form.select :category_id, options_for_select(@categories.collect { |cat| [cat.title, cat.id]})%>
+    <%= form.label :clip, style: "display: block" %>
+    <%= form.file_field :clip %>
+  </div>
+
+  <div>
+    <%= form.label :thumbnail, style: "display: block" %>
+    <%= form.file_field :thumbnail %>
   </div>
 
   <div>

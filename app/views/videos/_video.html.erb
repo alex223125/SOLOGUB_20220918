@@ -4,6 +4,14 @@
     <%= video.title %>
   </p>
 
+  <div style="width:400px; height:400px">
+    <%= image_tag(@video.thumbnail, style: 'width:100%;height:auto') %>
+  </div>
+
+  <div style="width:400px; height:400px">
+    <%= video_tag(url_for(@video.clip), style: 'width:100%; height: auto', controls: '') %>
+  </div>
+
   <p>
     <strong>Category:</strong>
     <%= link_to video.try(:category).try(:title), video.category %>
