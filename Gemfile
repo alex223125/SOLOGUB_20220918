@@ -49,7 +49,8 @@ gem 'bootsnap', require: false
 gem 'image_processing', '~> 1.2'
 gem 'sass-rails'
 gem 'sidekiq', '~>6.5.6'
-
+gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
+gem 'sidekiq-scheduler', '~>3.2.2'
 # Use Sass to process CSS
 # gem "sassc-rails"
 
