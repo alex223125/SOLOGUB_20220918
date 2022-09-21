@@ -12,8 +12,13 @@ module Services
 
       def call
         set_clip
-        @format_flag = valid_format?
-        @file_size_flag = valid_file_size?
+        set_flags
+        process
+      end
+
+      private
+
+      def process
         if @format_flag && @file_size_flag
           @video.is_valid = true
         else
@@ -24,7 +29,10 @@ module Services
         @video.save!
       end
 
-      private
+      def set_flags
+        @format_flag = valid_format?
+        @file_size_flag = valid_file_size?
+      end
 
       def mark_as_processed
         @video.is_processed = true
