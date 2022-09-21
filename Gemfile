@@ -51,6 +51,10 @@ gem 'sass-rails'
 gem 'sidekiq', '~>6.5.6'
 gem 'sidekiq-scheduler', '~>3.2.2'
 gem 'streamio-ffmpeg', '~> 3.0', '>= 3.0.2'
+
+gem 'rack-cors', '~>1.1.1'
+gem 'active_model_serializers', '~> 0.10.2'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
