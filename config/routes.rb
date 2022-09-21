@@ -10,4 +10,13 @@ Rails.application.routes.draw do
   Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
+
+  namespace :api do
+    namespace :v1 do
+      get 'videos/index'
+      post 'videos/', to: 'videos#create'
+      delete 'videos/:id', to: 'videos#destroy'
+    end
+  end
+
 end
