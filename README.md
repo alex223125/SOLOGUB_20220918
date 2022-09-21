@@ -1,24 +1,12 @@
-# README
+Application contains 2 apps, one ruby on rails app and one reactjs app.
+Application has 2 UI. One written using regular ruby on rails controllers and views and second using react js.
+Maximum file size limit was changed to 20MB for testing purposes.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Run rails app
+   Navigate to folder and run `bundle install`,
+   After it run `rails s`.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+2. To run reactjs app
+   Navigate to folder `videosharing` (`cd videosharing`),
+   install dependencies `npn install`,
+   start application `npm start` .
