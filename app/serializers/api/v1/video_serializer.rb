@@ -6,10 +6,15 @@ module Api
       attributes :id, :title, :clip, :thumbnail, :category_id, :is_valid,
                  :error_reason, :is_processed
 
+      THUMBNAIL_SIZE = [256, 256]
+
       include Rails.application.routes.url_helpers
 
       def thumbnail
-        rails_blob_url(object.thumbnail, host: ENV['APPLICATION_HOST']) if object.thumbnail.attached?
+        if object.thumbnail.variable? && object.thumbnail.attached?
+          variant = object.thumbnail.variant(resize_to_limit: THUMBNAIL_SIZE).processed
+          rails_blob_url(variant, host: ENV['APPLICATION_HOST'])
+        end
       end
 
       def clip
