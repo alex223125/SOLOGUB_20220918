@@ -1,15 +1,16 @@
-import { Button, Form, Input, Modal, Select } from "antd";
+import { Button, Form, Input, Select } from "antd";
 import React from "react";
 import HeaderElement from "./HeaderElement";
+import {withRouter} from './withRouter';
 
 const { Option } = Select;
 const HOST_URL = "http://127.0.0.1:3000/"
 
 class UploadPage extends React.Component {
 
-    moveOnDefaultPage = () => {
+    routeChangeToHome = () => {
         let path = `/`;
-        navigate(path);
+        this.props.navigate(path)
     }
 
     onFinish = (e) => {
@@ -27,17 +28,12 @@ class UploadPage extends React.Component {
         })
             .then((data) => {
                 if (data.ok) {
-                    this.handleCancel();
-
                     return data.json();
                 }
                 throw new Error("Network error.");
             })
-            .then(() => {
-                this.moveOnDefaultPage();
-                // this.props.reloadVideos();
-            })
             .catch((err) => console.error("Error: " + err));
+        this.routeChangeToHome();
     };
 
     titleChangedHandler = (e) => {
@@ -66,7 +62,6 @@ class UploadPage extends React.Component {
             category: value,
         });
     };
-
 
     render() {
         return (
@@ -141,4 +136,4 @@ class UploadPage extends React.Component {
     }
 }
 
-export default UploadPage;
+export default withRouter(UploadPage);
